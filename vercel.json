@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "mkdir -p dist && cp file.html dist/index.html && cp resume.pdf dist/resume.pdf",
+  "buildCommand": "source_dir=.; if [ ! -f \"$source_dir/file.html\" ]; then source_dir=..; fi && test -f \"$source_dir/resume.pdf\" && mkdir -p dist && cp \"$source_dir/file.html\" dist/index.html && cp \"$source_dir/resume.pdf\" dist/resume.pdf",
   "outputDirectory": "dist",
   "redirects": [
     {
