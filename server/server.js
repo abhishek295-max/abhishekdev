@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '12kb', strict: true }));
 app.use('/api/contact', contactRoutes);
 app.get('/', (_req, res) => res.sendFile(path.resolve(__dirname, '../file.html')));
+app.get('/resume.pdf', (_req, res) => res.download(path.resolve(__dirname, '../resume.pdf'), 'Abhishek-Samadhiya-Java-Resume.pdf'));
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 app.use((error, _req, res, _next) => {
   if (error instanceof SyntaxError && error.status === 400 && 'body' in error) {

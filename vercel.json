@@ -1,0 +1,5 @@
+{
+  "framework": null,
+  "buildCommand": "mkdir -p dist && cp file.html dist/index.html && cp resume.pdf dist/resume.pdf",
+  "outputDirectory": "dist"
+}

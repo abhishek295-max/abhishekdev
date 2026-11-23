@@ -9,7 +9,7 @@ This repository upgrades the existing single-page portfolio in `file.html` while
 - Architecture nodes and the terminal explain the published portfolio data. The diagram is explicitly illustrative and is not a claim that the listed projects share one deployed architecture.
 - Public GitHub repository/activity data loads lazily from GitHub's unauthenticated public API and is cached in the browser for 30 minutes. GitHub may rate-limit anonymous requests; the profile link remains available if the request fails.
 - Contact messages are validated, rate-limited, protected by a honeypot, and sent over SMTP by the server. SMTP secrets remain environment variables.
-- Netlify deployment uses a serverless contact function at `/api/contact` and serves a copied `file.html` as `index.html`.
+- Vercel deployment serves the portfolio as `index.html` and publishes `resume.pdf` for the resume download links.
 
 ## Local development
 
@@ -28,9 +28,13 @@ npm start
 
 Open `http://localhost:3000`. The same-origin Express app serves the page and handles `POST /api/contact`. `npm run dev` enables Node's watch mode. Run automated checks with `npm test` from `server/`.
 
+## Vercel deployment
+
+`vercel.json` builds the static portfolio into `dist`, copying both `file.html` (as `index.html`) and `resume.pdf`. Deploy the repository through Vercel so the resume download links resolve to `/resume.pdf`.
+
 ## Netlify deployment
 
-`netlify.toml` installs the locked server dependencies, copies the page to the publish directory, and bundles `netlify/functions/contact.js`. Configure these environment variables in the Netlify site settings (never in committed files):
+`netlify.toml` installs the locked server dependencies, copies the page and resume PDF to the publish directory, and bundles `netlify/functions/contact.js`. Configure these environment variables in the Netlify site settings (never in committed files):
 
 - `OWNER_EMAIL`
 - `SMTP_HOST`

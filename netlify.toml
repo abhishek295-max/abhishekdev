@@ -1,5 +1,5 @@
 [build]
-  command = "cd server && npm ci --omit=dev && cd .. && mkdir -p dist && cp file.html dist/index.html && cp _redirects dist/_redirects"
+  command = "cd server && npm ci --omit=dev && cd .. && mkdir -p dist && cp file.html dist/index.html && cp resume.pdf dist/resume.pdf && cp _redirects dist/_redirects"
   publish = "dist"
   functions = "netlify/functions"
 
