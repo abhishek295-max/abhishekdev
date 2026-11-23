@@ -174,6 +174,20 @@ footer{text-align:center;color:var(--mu);font:.75rem 'JetBrains Mono';padding:2.
 .sw:hover{border-color:var(--c1);transform:translateY(-2px)}.sw.on{border-color:var(--c1);box-shadow:0 0 14px -3px var(--c1);background:rgba(255,255,255,.08)}
 .sw i{flex:none;width:16px;height:16px;border-radius:50%;box-shadow:0 0 8px currentColor}
 .tfoot{display:flex;gap:.6rem}.tfoot .btn{flex:1;padding:.6rem;font-size:.75rem}
+/* Professional light theme */
+:root[data-theme="light"]{--tx:#172033;--mu:#526079;--bd:rgba(71,85,105,.18);--gl:rgba(255,255,255,.84)}
+:root[data-theme="light"] body{background:#f4f7fb}
+:root[data-theme="light"] #bg{opacity:.07}
+:root[data-theme="light"] .neb{opacity:.16}
+:root[data-theme="light"] .vig{background:linear-gradient(180deg,rgba(248,250,252,.08),rgba(248,250,252,.32))}
+:root[data-theme="light"] nav,:root[data-theme="light"] nav ul{background:rgba(248,250,252,.88)}
+:root[data-theme="light"] h2{background:linear-gradient(90deg,#172033,var(--c1) 68%,var(--c2));-webkit-background-clip:text;background-clip:text}
+:root[data-theme="light"] .btn,:root[data-theme="light"] .sw,:root[data-theme="light"] .sk span{background:rgba(255,255,255,.68)}
+:root[data-theme="light"] .pr .n{color:rgba(var(--r1),.62)}
+:root[data-theme="light"] .tg span{background:rgba(var(--r2),.1);color:#39456a}
+:root[data-theme="light"] .live,:root[data-theme="light"] .tag{background:rgba(255,255,255,.88);color:#172033}
+:root[data-theme="light"] input,:root[data-theme="light"] textarea{background:rgba(255,255,255,.8)}
+:root[data-theme="light"] .tp{background:rgba(255,255,255,.96)}
 </style>
 </head>
 <body>
@@ -400,12 +414,12 @@ for(const p of g){p.a+=18/(p.r+40)*.01;x.fillStyle=rg(C[p.c],.75);x.fillRect(cx+
 function frame(t){requestAnimationFrame(frame);boost*=.96;if(mode===11)return;if(!TR[mode])x.clearRect(0,0,W,H);x.globalCompositeOperation='lighter';E[mode](t);x.globalCompositeOperation='source-over'}
 requestAnimationFrame(frame);
 /* themes + UI */
-const TH=[['Cyber Cyan','#03050f','#22d3ee','#6366f1','#7dd3fc'],['Neon Violet','#07030f','#a78bfa','#ec4899','#f0abfc'],['Matrix Green','#010a05','#22c55e','#16a34a','#86efac'],['Sunset Blaze','#0f0503','#fb923c','#ef4444','#fcd34d'],['Deep Ocean','#02081a','#38bdf8','#2563eb','#67e8f9'],['Crimson Core','#0f0306','#f43f5e','#be123c','#fda4af'],['Royal Gold','#0a0802','#fbbf24','#d97706','#fde68a'],['Aurora Teal','#02100f','#2dd4bf','#0ea5e9','#a7f3d0'],['Candy Pink','#0f0310','#f472b6','#c084fc','#fbcfe8'],['Frost White','#050a12','#e0f2fe','#94a3b8','#ffffff'],['Toxic Lime','#060a02','#a3e635','#65a30d','#d9f99d'],['Deep Indigo','#04031a','#818cf8','#4f46e5','#c7d2fe'],['Mars Rust','#100703','#ea580c','#9a3412','#fdba74'],['Synthwave','#0b0218','#f0abfc','#22d3ee','#fb7185'],['Emerald Forest','#021008','#34d399','#059669','#bbf7d0'],['Silver Steel','#08090c','#cbd5e1','#64748b','#f1f5f9'],['OLED Black','#000000','#60a5fa','#1d4ed8','#bfdbfe'],['Volcano','#0d0402','#ff6b35','#dc2626','#ffb703']],
+const TH=[['Cyber Cyan','#03050f','#22d3ee','#6366f1','#7dd3fc'],['Neon Violet','#07030f','#a78bfa','#ec4899','#f0abfc'],['Matrix Green','#010a05','#22c55e','#16a34a','#86efac'],['Sunset Blaze','#0f0503','#fb923c','#ef4444','#fcd34d'],['Deep Ocean','#02081a','#38bdf8','#2563eb','#67e8f9'],['Crimson Core','#0f0306','#f43f5e','#be123c','#fda4af'],['Royal Gold','#0a0802','#fbbf24','#d97706','#fde68a'],['Aurora Teal','#02100f','#2dd4bf','#0ea5e9','#a7f3d0'],['Candy Pink','#0f0310','#f472b6','#c084fc','#fbcfe8'],['Frost White','#050a12','#e0f2fe','#94a3b8','#ffffff'],['Toxic Lime','#060a02','#a3e635','#65a30d','#d9f99d'],['Deep Indigo','#04031a','#818cf8','#4f46e5','#c7d2fe'],['Mars Rust','#100703','#ea580c','#9a3412','#fdba74'],['Synthwave','#0b0218','#f0abfc','#22d3ee','#fb7185'],['Emerald Forest','#021008','#34d399','#059669','#bbf7d0'],['Silver Steel','#08090c','#cbd5e1','#64748b','#f1f5f9'],['OLED Black','#000000','#60a5fa','#1d4ed8','#bfdbfe'],['Volcano','#0d0402','#ff6b35','#dc2626','#ffb703'],['Professional Light','#f4f7fb','#2563eb','#0f766e','#60a5fa','light']],
 AN=['⭐ Stars & Meteors','🟩 Matrix Rain','🕸 Neural Network','🧊 3D Cube Field','🌐 Dotted Globe','🚀 Warp Speed','🌌 Aurora Waves','🔥 Embers','🌆 Retro Grid','🧬 DNA Helix','🌀 Galaxy','⛔ Minimal (off)'],
 thg=document.getElementById('thg'),ang=document.getElementById('ang'),tp=document.getElementById('tp'),hx=c=>[1,3,5].map(i=>parseInt(c.substr(i,2),16));
 function mark(){[...thg.children].forEach((b,i)=>b.classList.toggle('on',i===ti));[...ang.children].forEach((b,i)=>b.classList.toggle('on',i===mode))}
 function save(){try{localStorage.setItem('as-th',ti);localStorage.setItem('as-an',mode)}catch(e){}}
-function setTheme(i){const t=TH[i],r=document.documentElement.style;ti=i;r.setProperty('--bg',t[1]);r.setProperty('--c1',t[2]);r.setProperty('--c2',t[3]);r.setProperty('--c3',t[4]);r.setProperty('--r1',hx(t[2]).join(','));r.setProperty('--r2',hx(t[3]).join(','));C=[hx(t[2]),hx(t[3]),hx(t[4])];mark();save()}
+function setTheme(i){const t=TH[i],root=document.documentElement,r=root.style;ti=i;root.dataset.theme=t[5]||'dark';r.setProperty('--bg',t[1]);r.setProperty('--c1',t[2]);r.setProperty('--c2',t[3]);r.setProperty('--c3',t[4]);r.setProperty('--r1',hx(t[2]).join(','));r.setProperty('--r2',hx(t[3]).join(','));C=[hx(t[2]),hx(t[3]),hx(t[4])];mark();save()}
 function setMode(i){mode=i;S={};x.clearRect(0,0,W,H);mark();save()}
 TH.forEach((t,i)=>{const b=document.createElement('button');b.className='sw';b.innerHTML='<i style="background:linear-gradient(135deg,'+t[2]+','+t[3]+');color:'+t[2]+'"></i>'+t[0];b.onclick=()=>setTheme(i);thg.appendChild(b)});
 AN.forEach((n,i)=>{const b=document.createElement('button');b.className='sw';b.textContent=n;b.onclick=()=>setMode(i);ang.appendChild(b)});
